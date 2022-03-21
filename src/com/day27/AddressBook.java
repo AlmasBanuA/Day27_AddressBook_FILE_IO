@@ -27,6 +27,8 @@ package com.day27;
 		- Search Result will show count by city and by state by using java streams
 		
  * UC11:- Ability to sort the entries in the address book alphabetically by Person’s name
+ * 
+ * UC12:- Ability to sort the entries in the address book by City, State, or Zip
  * @author user -Almas
  *
  */
@@ -186,6 +188,15 @@ public class AddressBook {
 	public void sortByName() {
 		List<ContactDetails> list = contactDetailsList.stream().collect(Collectors.toList());
 		list.stream().sorted((g1, g2) -> ((String) g1.getFirstName()).compareTo(g2.getFirstName()))
+				.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
+	}
+
+	/**
+	 * Declaring Sort Method Sorting The Details Of Contact By City
+	 */
+	public void sortByCity() {
+		List<ContactDetails> list = contactDetailsList.stream().collect(Collectors.toList());
+		list.stream().sorted((g1, g2) -> ((String) g1.getCity()).compareTo(g2.getCity()))
 				.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
 	}
 
